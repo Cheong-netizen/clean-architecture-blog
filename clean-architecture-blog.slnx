@@ -2,6 +2,7 @@
   <Folder Name="/src/">
     <Project Path="Blog.Application/Blog.Application.csproj" />
     <Project Path="Blog.Domain/Blog.Domain.csproj" />
+    <Project Path="Blog.Infrastructure/Blog.Infrastructure.csproj" />
     <Project Path="Blog.WebUI/Blog.WebUI.csproj" />
   </Folder>
 </Solution>
