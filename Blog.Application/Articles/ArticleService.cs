@@ -7,16 +7,16 @@ namespace Blog.Application.Articles
 {
     public class ArticleService : IArticleService
     {
-        public List<Article> GetAllArticles()
+        private readonly IArticleRepository _articleRepository;
+
+        public ArticleService(IArticleRepository articleRepository)
         {
-            return new List<Article> {
-                new Article
-                {
-                    Id = 1,
-                    Title = "Test",
-                    Content = "Test"
-                }
-            };
+            _articleRepository = articleRepository;
+        }
+
+        public async Task<List<Article>> GetAllArticlesAsync()
+        {
+            return await _articleRepository.GetArticlesAsync();
         }
     }
 }

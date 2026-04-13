@@ -1,0 +1,26 @@
+﻿@page "/articles"
+@using Blog.Application.Articles
+@using Blog.Domain.Articles
+@inject IArticleService ArticleService
+<div>
+    <h1>Article page</h1>
+    @foreach (var article in articles)
+    {
+        <span>@article.Title</span>
+        <span>@article.Content</span>
+    }
+</div>
+
+@code {
+    private List<Article> articles = new List<Article>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        var result = await ArticleService.GetAllArticlesAsync();
+
+        if (result is not null)
+        {
+            articles = result;
+        }
+    }
+}
