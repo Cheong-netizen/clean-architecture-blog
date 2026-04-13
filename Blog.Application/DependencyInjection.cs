@@ -10,7 +10,10 @@ namespace Blog.Application
     {
         public static IServiceCollection AddApplication(this IServiceCollection services)
         {
-            services.AddScoped<IArticleService, ArticleService>();
+            services.AddMediatR(configuration =>
+            {
+                configuration.RegisterServicesFromAssemblies(typeof(DependencyInjection).Assembly);
+            });
 
             return services;
         }
