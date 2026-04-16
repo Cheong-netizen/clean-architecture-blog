@@ -15,7 +15,12 @@ namespace Blog.Infrastructure.Repositories
             _context = context;
         }
 
-        public async Task<List<Article>> GetArticlesAsync()
+        public Task<bool> CreateArticlesAsync()
+        {
+            throw new NotImplementedException();
+        }
+
+        public async Task<List<Article>> GetArticlesAsync(Article article)
         {
             return await _context.Articles.ToListAsync();
         }
